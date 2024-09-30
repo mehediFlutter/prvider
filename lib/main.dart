@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider_state_management/counter_example.dart';
+import 'package:provider_state_management/screen/counter_example.dart';
 
 void main(){
   runApp(MyApp());
