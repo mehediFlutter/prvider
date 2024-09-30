@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:provider_state_management/provider/counter_provider.dart';
 import 'package:provider_state_management/screen/counter_example.dart';
-import 'package:provider_state_management/screen/products_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => CounterProvider(),
+    child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -11,9 +15,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     CounterProvider counterProvider = Provider.of<CounterProvider>(context);
+     bool modeBool = counterProvider.themeModeValue;
+
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: ProductsScreen(),
+      theme: ThemeData(
+          scaffoldBackgroundColor: Colors.white,
+          brightness: Brightness.light,
+          textTheme: TextTheme(
+              titleLarge: TextStyle(fontSize: 20, color: Colors.black))),
+      darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          scaffoldBackgroundColor: Colors.black,
+          textTheme: TextTheme(
+              titleLarge: TextStyle(fontSize: 20, color: Colors.white))),
+              themeMode: counterProvider.themeModeValue?ThemeMode.light:ThemeMode.dark,
+    
+      home: CounterExample(),
     );
   }
 }
