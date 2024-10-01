@@ -21,6 +21,14 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.14.1"
+
+flutter_launcher_icons:
+  android: true
+  image_path: "icon/appi.png"
+  adaptive_icon_background: "icon/background.png"
+  adaptive_icon_foreground: "icon/ic_launcher_adaptive_fore.png"
+
 
 
   flutter_lints: ^4.0.0

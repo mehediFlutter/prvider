@@ -23,20 +23,22 @@ class CounterExample extends StatelessWidget {
             ),
           ),
           TextButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            AnotherPageToSeeValueOfProvider()));
-              },
-              child: Text("See the value")),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => AnotherPageToSeeValueOfProvider()));
+            },
+            child: Text(
+              "See the value",
+            ),
+          ),
           TextButton(
-              onPressed: () {
-                countProvider.themeChange();
-                
-              },
-              child: Text(countProvider.themeModeValue ? "Dark" : "Light"))
+            onPressed: () {
+              countProvider.themeChange();
+            },
+            child: Text(countProvider.themeModeValue ? "Dark" : "Light",style: TextStyle(color:Colors.red),),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
